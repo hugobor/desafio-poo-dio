@@ -10,3 +10,5 @@ Desafio da DIO!!!!!
 - [X] Adicionei propriedade `xp`;
 - [X] Tornei os campos `conteudos` e `devsInscritos` como somente leitura. Eles devem ser somente utilizados com os
 métodos `addDev`, `removeDev`, `addConteudo`, `removeConteudo`;
+- [X] O método `progredir` permite a progreção em um corso específico;
+- [X] Adicionei métodos para verificar se um aluno conclúiu um bootcamp inteiro;

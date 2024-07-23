@@ -1,6 +1,10 @@
 # Arquivos de backup
 *~
 
+# Compilação
+out/
+*.class
+
 # ---> Eclipse
 .metadata
 bin/

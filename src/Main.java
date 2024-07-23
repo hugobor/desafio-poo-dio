@@ -10,12 +10,12 @@ public class Main {
         Curso curso1 = new Curso();
         curso1.setTitulo("curso java");
         curso1.setDescricao("descrição curso java");
-        curso1.setCargaHoraria(8);
+        curso1.setCargaHoraria(8, curso1);
 
         Curso curso2 = new Curso();
         curso2.setTitulo("curso js");
         curso2.setDescricao("descrição curso js");
-        curso2.setCargaHoraria(4);
+        curso2.setCargaHoraria(4, curso2);
 
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("mentoria de java");
@@ -58,6 +58,13 @@ public class Main {
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
+        System.out.println("-------");
+        Dev devHugo = new Dev("Hugo");
+        Bootcamp santanderBootcamp = new Bootcamp("Bootcamp Santander Coders Backend", "Bootcamp de desenvolvimento com o Java, Spring Framework, patrocinado pelo Banco Santander!!!!");
+        System.out.println(devHugo);
+        System.out.println(santanderBootcamp);
+        
+        
     }
 
 }

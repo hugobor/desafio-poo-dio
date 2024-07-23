@@ -3,23 +3,69 @@ package br.com.dio.desafio.dominio;
 import java.util.*;
 
 public class Dev {
+	
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+    
+    public Dev() {
+    }
+    
+    public Dev(String nome) {
+    	super();
+    	this.nome = nome;
+    }
 
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
         bootcamp.addDev(this);
     }
 
-    public void progredir() {
+    public boolean progredir() {
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
         if(conteudo.isPresent()) {
             this.conteudosConcluidos.add(conteudo.get());
             this.conteudosInscritos.remove(conteudo.get());
+            return true;
         } else {
             System.err.println("Você não está matriculado em nenhum conteúdo!");
+            return false;
         }
+    }
+    
+    /**
+     * Progredir em um conteúdo específico.
+     */
+    public boolean progredir(Conteudo conteudo) {
+    	if (conteudosInscritos.contains(conteudo)) {
+    		conteudosConcluidos.add(conteudo);
+    		conteudosInscritos.remove(conteudo);
+    		return true;
+    	} else {
+            System.err.println("Você não está matriculado no conteúdo " + conteudo.toString() + "!");
+            return false;
+    	}
+    }
+    
+    /**
+     * Se o aluno concluíu o Bootcamp e está apto para receber o certificado.
+     */
+    public boolean concluiuBootcamp(Bootcamp bootcamp) {
+    	return conteudosConcluidos.containsAll(bootcamp.getConteudos());
+    }
+    
+    /**
+     * “Imprime” o certificado do Bootcamp se o aluno estiver apto (ele concluíu todos os conteúdos. 
+     */
+    public void imprimeCertificadoBootcamp(Bootcamp bootcamp) {
+    	if (bootcamp.getConteudos().isEmpty()) {
+    		System.out.println("Bootcamp vazio!");
+    	} else if (concluiuBootcamp(bootcamp)) {
+    		System.out.println(String.format(
+    				"O aluno “%s” concluíu o Bootcamp “%s”%n", getNome(), bootcamp.getNome()));
+    	} else {
+    		System.out.println("Você ainda não está apto para receber o seu certificado!");
+    	}
     }
 
     public double calcularTotalXp() {
@@ -31,10 +77,6 @@ public class Dev {
         }
         return soma;
 
-        /*return this.conteudosConcluidos
-                .stream()
-                .mapToDouble(Conteudo::calcularXp)
-                .sum();*/
     }
 
 
@@ -74,4 +116,16 @@ public class Dev {
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
     }
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Dev [nome=").append(nome)
+			.append(", inscrições=").append(conteudosInscritos.size())
+			.append(", conclusões=").append(conteudosConcluidos.size())
+			.append("]");
+		
+		return builder.toString();
+	}
+
 }

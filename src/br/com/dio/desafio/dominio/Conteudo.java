@@ -11,6 +11,7 @@ public abstract class Conteudo {
     private String titulo;
     private String descricao;
     private Double xp = XP_PADRAO;
+	protected int cargaHoraria;
     
     public Conteudo() {
     }
@@ -60,6 +61,14 @@ public abstract class Conteudo {
 			.append(", xp=").append(xp)
 			.append("]");
 		return builder.toString();
+	}
+
+	public int getCargaHoraria() {
+	    return cargaHoraria;
+	}
+
+	public void setCargaHoraria(int cargaHoraria, Curso curso) {
+	    this.cargaHoraria = cargaHoraria;
 	}
     
     
