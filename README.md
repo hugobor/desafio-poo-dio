@@ -15,4 +15,4 @@ métodos `addDev`, `removeDev`, `addConteudo`, `removeConteudo`;
 - [X] É possivel calcular a carga horária todal de um bootcamp;
 - [X] O aluno pode conferir a carga horára parcial que ele concluíu em um bootcamp;
 - [X] O aluno pode gerar um “certificado” do bootcamp que ele concluíu com o método `imprimirCertificado`;
-- [X] 
+- [X] Adicionei outro tipo de conteúdo, `desafio`;

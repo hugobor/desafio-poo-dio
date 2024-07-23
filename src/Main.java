@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Conteudo;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Desafio;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
@@ -72,10 +73,15 @@ public class Main {
         
         Conteudo mentoMento = new Mentoria("Mentoria de Mentorias", "", "Hugo", 2);
         
+        Conteudo desafioPoo = new Desafio("Desafio POO", "", 2, 100.0);
+        Conteudo desafioBanco = new Desafio("Desafio Banco Digital", "", 4, 200.0);
+        
         santanderBootcamp.addConteudo(cursoIntroSpring);
         santanderBootcamp.addConteudo(cursoPostgres);
         santanderBootcamp.addConteudo(cursoNoSql);
         santanderBootcamp.addConteudo(mentoMento);
+        santanderBootcamp.addConteudo(desafioPoo);
+        santanderBootcamp.addConteudo(desafioBanco);
         
         System.out.println(santanderBootcamp);
         System.out.format("Carga horária total: %d h.%n", santanderBootcamp.getCargaHorariaTotal());
@@ -89,6 +95,8 @@ public class Main {
         devHugo.progredir(mentoMento);
         devHugo.imprimeCertificadoBootcamp(santanderBootcamp);
         System.out.format("Carga horária cumprida: %d h.%n", devHugo.cargaHorariaParcial(santanderBootcamp));
+        devHugo.progredir();
+        devHugo.progredir();
         devHugo.progredir();
         devHugo.progredir();
         
