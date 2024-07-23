@@ -61,11 +61,21 @@ public class Dev {
     	if (bootcamp.getConteudos().isEmpty()) {
     		System.out.println("Bootcamp vazio!");
     	} else if (concluiuBootcamp(bootcamp)) {
-    		System.out.println(String.format(
-    				"O aluno “%s” concluíu o Bootcamp “%s”%n", getNome(), bootcamp.getNome()));
+    		System.out.format(
+    				"O aluno “%s” concluíu o Bootcamp “%s” de %d horas.%n",
+    				getNome(), bootcamp.getNome(), bootcamp.getCargaHorariaTotal());
     	} else {
     		System.out.println("Você ainda não está apto para receber o seu certificado!");
     	}
+    }
+    
+    /**
+     * Carga horária que um desenvolvedor já concluíu em um bootcamp.
+     */
+    public int cargaHorariaParcial(Bootcamp bootcamp) {
+    	return bootcamp.getConteudos().stream()
+    		.filter(conteudoBootcamp -> conteudosConcluidos.contains(conteudoBootcamp))
+    		.mapToInt(Conteudo::getCargaHoraria).sum();
     }
 
     public double calcularTotalXp() {

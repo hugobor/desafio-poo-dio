@@ -1,9 +1,10 @@
+import java.time.LocalDate;
+
 import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Conteudo;
 import br.com.dio.desafio.dominio.Curso;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
-
-import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -63,6 +64,36 @@ public class Main {
         Bootcamp santanderBootcamp = new Bootcamp("Bootcamp Santander Coders Backend", "Bootcamp de desenvolvimento com o Java, Spring Framework, patrocinado pelo Banco Santander!!!!");
         System.out.println(devHugo);
         System.out.println(santanderBootcamp);
+        System.out.format("Carga horária total: %d h.%n", santanderBootcamp.getCargaHorariaTotal());
+        
+        Conteudo cursoIntroSpring = new Curso("Introdução ao Spring", "", 12);
+        Conteudo cursoPostgres = new Curso("Postgres Avançado", "", 10);
+        Conteudo cursoNoSql = new Curso("MongoDB para Devs", "", 5);
+        
+        Conteudo mentoMento = new Mentoria("Mentoria de Mentorias", "", "Hugo", 2);
+        
+        santanderBootcamp.addConteudo(cursoIntroSpring);
+        santanderBootcamp.addConteudo(cursoPostgres);
+        santanderBootcamp.addConteudo(cursoNoSql);
+        santanderBootcamp.addConteudo(mentoMento);
+        
+        System.out.println(santanderBootcamp);
+        System.out.format("Carga horária total: %d h.%n", santanderBootcamp.getCargaHorariaTotal());
+        
+        devHugo.inscreverBootcamp(santanderBootcamp);
+        
+        devHugo.imprimeCertificadoBootcamp(santanderBootcamp);
+        System.out.format("Carga horária cumprida: %d h.%n", devHugo.cargaHorariaParcial(santanderBootcamp));
+        
+        devHugo.progredir(cursoNoSql);
+        devHugo.progredir(mentoMento);
+        devHugo.imprimeCertificadoBootcamp(santanderBootcamp);
+        System.out.format("Carga horária cumprida: %d h.%n", devHugo.cargaHorariaParcial(santanderBootcamp));
+        devHugo.progredir();
+        devHugo.progredir();
+        
+        devHugo.imprimeCertificadoBootcamp(santanderBootcamp);
+        System.out.format("Carga horária cumprida: %d h.%n", devHugo.cargaHorariaParcial(santanderBootcamp));
         
         
     }

@@ -12,3 +12,7 @@ Desafio da DIO!!!!!
 métodos `addDev`, `removeDev`, `addConteudo`, `removeConteudo`;
 - [X] O método `progredir` permite a progreção em um corso específico;
 - [X] Adicionei métodos para verificar se um aluno conclúiu um bootcamp inteiro;
+- [X] É possivel calcular a carga horária todal de um bootcamp;
+- [X] O aluno pode conferir a carga horára parcial que ele concluíu em um bootcamp;
+- [X] O aluno pode gerar um “certificado” do bootcamp que ele concluíu com o método `imprimirCertificado`;
+- [X] 

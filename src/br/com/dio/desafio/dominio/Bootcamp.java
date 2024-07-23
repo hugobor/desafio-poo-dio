@@ -77,6 +77,14 @@ public class Bootcamp {
     }
     
     
+    /**
+     * Carga horária total do bootcamp em horas.
+     */
+    public int getCargaHorariaTotal() {
+    	return conteudos.stream().mapToInt(Conteudo::getCargaHoraria).sum();
+    }
+    
+    
 
     @Override
     public boolean equals(Object o) {
@@ -90,4 +98,20 @@ public class Bootcamp {
     public int hashCode() {
         return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos);
     }
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder
+			.append("Bootcamp [nome=").append(nome)
+			.append(", descricao=").append(descricao)
+			.append(", dataInicial=").append(dataInicial)
+			.append(", dataFinal=").append(dataFinal)
+			.append(", desenvolvedores=").append(devsInscritos.size())
+			.append(", conteudos=").append(conteudos.size())
+			.append("]");
+		return builder.toString();
+	}
+    
+    
 }

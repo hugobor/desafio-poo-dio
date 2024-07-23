@@ -3,6 +3,7 @@
 
 # Compilação
 out/
+
 *.class
 
 # ---> Eclipse
